@@ -19,7 +19,13 @@ default: &default
 
 development:
   <<: *default
+  adapter: mysql2
+  encofing: utf8mb4
   database: kalendar_development
+  pool: 5
+  username: <%= ENV["DEVELOPMENT_MYSQL_USERNAME"]%>
+  password: <%= ENV["DEVELOPMENT_MYSQL_PASSWORD"]%>
+  host: localhost
 
 # Warning: The database defined as "test" will be erased and
 # re-generated from your development database when you run "rake".
@@ -52,3 +58,4 @@ production:
   database: kalendar_production
   username: kalendar
   password: <%= ENV['KALENDAR_DATABASE_PASSWORD'] %>
+
