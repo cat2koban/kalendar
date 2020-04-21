@@ -55,7 +55,7 @@ test:
 #
 production:
   <<: *default
-  database: kalendar_production
-  username: kalendar
-  password: <%= ENV['KALENDAR_DATABASE_PASSWORD'] %>
+  database: heroku_e4b0d6c3ffb19a8
+  username: bb88494b70cdd7
+  password: <%= ENV['DB_PASSWORD'] %>
 
