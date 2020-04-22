@@ -1,0 +1,33 @@
+version: 2
+
+jobs:
+  build:
+    docker:
+      - image: circleci/ruby:2.6.6-node-browsers
+        environment:
+          RAILS_ENV: test
+      - image: mysql:5.7.29
+        environment:
+          MYSQL_ALLOW_EMPTY_PASSWORD: yes
+    steps:
+      - checkout
+      - run:
+          name: install bundler
+          command: |
+              gem update --system	
+              gem install bundler
+      - restore_cache:
+          keys:
+            - app-{{ checksum "Gemfile.lock" }}-{{ checksum "yarn.lock" }}
+            - app-
+      - run: bundle install --path vendor/bundle
+      - run: yarn install
+      - save_cache:
+          key: app-{{ checksum "Gemfile.lock" }}-{{ checksum "yarn.lock" }}
+          paths:
+            - vendor/bundle
+            - node_modules
+      - run: cp config/database.yml.circleci config/database.yml
+      - run: bundle exec rake db:create db:schema:load
+      - run: bundle exec bin/webpack
+      - run: bundle exec rspec
