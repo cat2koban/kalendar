@@ -1,4 +1,3 @@
 class KalendarController < ApplicationController
-  def home
-  end
+  def home; end
 end
