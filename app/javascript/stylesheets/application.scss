@@ -1,2 +1,76 @@
 @import "bulma/css/bulma.css";
 
+html, body {
+  margin: 0;
+  height: 100%;
+}
+
+.navbar {
+  .navbar-brand {
+    .navbar-item {
+      span {
+        margin: {
+          left: 0.5rem;
+        }
+      }
+    }
+  }
+}
+
+.simple-calendar {
+  .calendar-heading {
+    text-align: center;
+    margin: {
+      top: 4rem;
+      bottom: 1rem;
+    }
+    a {
+      color: #3298dc;
+    }
+  }
+  .table {
+    max-width: 80%;
+    margin: {
+      right: auto;
+      left: auto;
+    }
+    thead, tbody {
+      border: {
+        color: hsl(0, 0%, 21%);
+        style: solid;
+        width: 2px;
+      }
+    }
+    thead {
+      tr {
+        background: hsl(204, 86%, 53%);
+      }
+      th {
+        color: white;
+        border: {
+          width: 0.1rem;
+          right: hsl(0, 0%, 0%);
+        }
+      }
+    }
+    td {
+      height:100px;
+      width: 100px;
+    }
+    .prev-month {
+      background: hsl(0, 0%, 86%);
+    }
+    .next-month {
+      background: hsl(0, 0%, 86%);
+    }
+    .today {
+      background: hsl(48, 100%,67%);
+    }
+  }
+}
+
+.footer {
+  margin: {
+    top: auto;
+  }
+}
