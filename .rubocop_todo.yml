@@ -105,3 +105,8 @@ Style/SymbolArray:
 # URISchemes: http, https
 Layout/LineLength:
   Max: 114
+
+Metrics/BlockLength:
+  Exclude:
+    - 'spec/**/*'
+
