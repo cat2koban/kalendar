@@ -93,8 +93,34 @@ html, body {
   }
 }
 
-.footer {
-  margin: {
-    top: auto;
+/* sign up page */
+.registration-fields {
+  margin: 3rem auto;
+  width: 50%;
+  h1 {
+    font: {
+      family: $font-primary;
+      weight: 800;
+    }
+    margin: {
+      top: 1rem;
+      bottom: 2rem;
+    }
+  }
+  .input {
+    margin: {
+      bottom: 0.5rem;
+    }
+  }
+  input.button {
+    display: block;
+    margin: {
+      top: 1rem;
+      left: auto;
+    }
+    font: {
+      weight: 600;
+    }
   }
 }
+
