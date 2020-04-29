@@ -1,0 +1,100 @@
+@import "bulma/css/bulma.css";
+
+/* Colors */
+$background_base: hsl(204, 86%, 53%);
+$background_gray: hsl(0, 0%, 86%);
+$background_selected: hsl(48, 100%, 67%);
+
+/* Fonts */
+$font-primary: 'Open Sans';
+
+html, body {
+  margin: 0;
+  height: 100%;
+}
+
+.navbar {
+  .navbar-brand {
+    .navbar-item {
+      span {
+        font: {
+          family: $font-primary;
+          weight: 800
+        }
+        margin: {
+          left: 0.5rem;
+        }
+      }
+    }
+  }
+}
+
+.simple-calendar {
+  .calendar-heading {
+    text-align: center;
+    margin: {
+      top: 1rem;
+      bottom: 1rem;
+    }
+    a {
+      color: #3298dc;
+    }
+    .calendar-title {
+      font: {
+        family: $font-primary;
+        weight: 800;
+      }
+    }
+  }
+  .table {
+    max-width: 80%;
+    margin: {
+      right: auto;
+      left: auto;
+    }
+    thead, tbody {
+      border: {
+        color: hsl(0, 0%, 21%);
+        style: solid;
+        width: 2px;
+      }
+    }
+    thead {
+      tr {
+        background: $background_base;
+      }
+      th {
+        color: white;
+        border: {
+          width: 0.1rem;
+          right: hsl(0, 0%, 0%);
+        }
+      }
+    }
+    td {
+      height: 100px;
+      width: 100px;
+      a {
+        color: black;
+        display: block;
+        width: 100%;
+        height: 100%;
+      }
+    }
+    .prev-month, .next-month {
+      background: $background_gray;
+    }
+    .today {
+      a {
+        color: white;
+      }
+      background: $background_base;
+    }
+  }
+}
+
+.footer {
+  margin: {
+    top: auto;
+  }
+}
