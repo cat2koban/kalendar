@@ -8,6 +8,9 @@ $background_selected: hsl(48, 100%, 67%);
 /* Fonts */
 $font-primary: 'Open Sans';
 
+/* Pages */
+@import 'signup_pages';
+
 html, body {
   margin: 0;
   height: 100%;
@@ -90,11 +93,5 @@ html, body {
       }
       background: $background_base;
     }
-  }
-}
-
-.footer {
-  margin: {
-    top: auto;
   }
 }
