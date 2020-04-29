@@ -18,6 +18,7 @@ group :development, :test do
   gem 'rspec-rails', '~> 4.0.0'
   gem 'rubocop-rails', '~> 2.5', '>= 2.5.2'
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
+  gem 'factory_bot_rails', '5.2'
 end
 
 group :development do
@@ -31,6 +32,8 @@ group :test do
   gem 'capybara', '>= 2.15'
   gem 'selenium-webdriver'
   gem 'webdrivers'
+  gem 'database_cleaner', '1.8.4'
+  gem 'shoulda-matchers', '4.3.0'
 end
 
 group :production do
