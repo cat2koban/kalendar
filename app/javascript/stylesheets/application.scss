@@ -8,6 +8,9 @@ $background_selected: hsl(48, 100%, 67%);
 /* Fonts */
 $font-primary: 'Open Sans';
 
+/* Pages */
+@import 'signup_pages';
+
 html, body {
   margin: 0;
   height: 100%;
@@ -89,37 +92,6 @@ html, body {
         color: white;
       }
       background: $background_base;
-    }
-  }
-}
-
-/* sign up page */
-.registration-fields {
-  margin: 3rem auto;
-  width: 450px;
-  h1 {
-    font: {
-      family: $font-primary;
-      weight: 800;
-    }
-    margin: {
-      top: 1rem;
-      bottom: 2rem;
-    }
-  }
-  .input {
-    margin: {
-      bottom: 0.5rem;
-    }
-  }
-  input.button {
-    display: block;
-    margin: {
-      top: 1rem;
-      left: auto;
-    }
-    font: {
-      weight: 600;
     }
   }
 }
