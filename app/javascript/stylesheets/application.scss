@@ -3,6 +3,7 @@
 /* Colors */
 $background_base: hsl(204, 86%, 53%);
 $background_gray: hsl(0, 0%, 86%);
+$background_selected: hsl(48, 100%, 67%);
 
 /* Fonts */
 $font-primary: 'Open Sans';
@@ -17,7 +18,7 @@ html, body {
     .navbar-item {
       span {
         font: {
-          family: 'Open Sans';
+          family: $font-primary;
           weight: 800
         }
         margin: {
@@ -40,7 +41,7 @@ html, body {
     }
     .calendar-title {
       font: {
-        family: 'Open Sans';
+        family: $font-primary;
         weight: 800;
       }
     }
@@ -73,12 +74,20 @@ html, body {
     td {
       height:100px;
       width: 100px;
+      a {
+        color: black;
+        display: block;
+        width: 100%;
+        height: 100%;
+      }
     }
     .prev-month, .next-month {
       background: $background_gray;
     }
     .today {
-      color: white;
+      a {
+        color: white;
+      }
       background: $background_base;
     }
   }
