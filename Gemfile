@@ -34,6 +34,7 @@ group :test do
   gem 'webdrivers'
   gem 'database_cleaner', '1.8.4'
   gem 'shoulda-matchers', '4.3.0'
+  gem 'faker', '2.11'
 end
 
 group :production do
