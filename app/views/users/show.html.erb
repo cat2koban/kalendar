@@ -1,0 +1,9 @@
+<div class="user-profile">
+  <h1>Profile</h1>
+  <% image_number = Random.new.rand(1..300) %>
+  <img src=<%= "https://i.picsum.photos/id/#{image_number}/300/300.jpg" %> class="profile-image">
+  <h2>Name</h2>
+  <span><%= @user.name %></span>
+  <h2>Email</h2>
+  <span><%= @user.email %></span>
+</div>
