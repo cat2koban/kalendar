@@ -48,8 +48,16 @@ RSpec.describe User, type: :model do
   describe 'before_save' do
     describe '#email_downcase' do
       let!(:user) { create(:user, email: 'USER@EXAMPLE.COM') }
-      it 'makes email to low case' do
+      it 'makes email from up to low case' do
         expect(user.reload.email).to eq 'user@example.com'
+      end
+      it 'makes email from mix to low case' do
+        user = create(:user, email: 'MixIN@ExamPle.com')
+        expect(user.reload.email).to eq 'mixin@example.com'
+      end
+      it 'makes email no changes' do
+        user = create(:user, email: 'downcase@example.com')
+        expect(user.reload.email).to eq 'downcase@example.com'
       end
     end
   end
