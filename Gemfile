@@ -10,7 +10,7 @@ gem 'sass-rails', '>= 6'
 gem 'webpacker', '~> 4.0'
 gem 'turbolinks', '~> 5'
 gem 'jbuilder', '~> 2.7'
-# gem 'bcrypt', '~> 3.1.7'
+gem 'bcrypt', '~> 3.1.7'
 gem 'bootsnap', '>= 1.4.2', require: false
 gem 'simple_calendar', '~> 2.0'
 
@@ -18,6 +18,7 @@ group :development, :test do
   gem 'rspec-rails', '~> 4.0.0'
   gem 'rubocop-rails', '~> 2.5', '>= 2.5.2'
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
+  gem 'factory_bot_rails', '5.2'
 end
 
 group :development do
@@ -31,6 +32,9 @@ group :test do
   gem 'capybara', '>= 2.15'
   gem 'selenium-webdriver'
   gem 'webdrivers'
+  gem 'database_cleaner', '1.8.4'
+  gem 'shoulda-matchers', '4.3.0'
+  gem 'faker', '2.11'
 end
 
 group :production do
