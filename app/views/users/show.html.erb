@@ -1,9 +1,13 @@
-<div class="user-profile">
-  <h1>Profile</h1>
-  <% image_number = Random.new.rand(1..300) %>
-  <img src=<%= "https://i.picsum.photos/id/#{image_number}/300/300.jpg" %> class="profile-image">
-  <h2>Name</h2>
-  <span><%= @user.name %></span>
-  <h2>Email</h2>
-  <span><%= @user.email %></span>
+<div class="profile has-text-centered">
+  <h1 class="is-size-3">Profile</h1>
+  <div class="users-image">
+    <% image_number = Random.new.rand(1..10) %>
+    <img src="<%="https://i.picsum.photos/id/#{image_number}/300/300.jpg"%>">
+  </div>
+  <div class="users-name is-size-4">
+    <span><%= @user.name %></span>
+  </div>
+  <div class="users-email is-size-4">
+    <span><%= @user.email %></span>
+  </div>
 </div>
