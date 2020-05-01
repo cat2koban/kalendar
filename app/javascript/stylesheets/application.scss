@@ -9,7 +9,8 @@ $background_selected: hsl(48, 100%, 67%);
 $font-primary: 'Open Sans';
 
 /* Pages */
-@import 'signup_pages';
+@import 'users/new.scss';
+@import 'users/show.scss';
 
 html, body {
   margin: 0;
@@ -30,6 +31,11 @@ html, body {
       }
     }
   }
+}
+
+.notification {
+  width: 70%;
+  margin: 0 auto;
 }
 
 .simple-calendar {
