@@ -1,0 +1,29 @@
+.profile {
+  margin: 3rem auto;
+  width: 450px;
+  h1 {
+    font: {
+      family: $font-primary;
+      weight: 800;
+    }
+    margin: {
+      top: 1rem;
+      bottom: 2rem;
+    }
+  }
+  .users-image {
+    width: 150px;
+    height: 150px;
+    margin: 0 auto;
+    img {
+      border-radius: 50%;
+    }
+  }
+  .users-name {
+    margin-top: 2rem;
+    font-weight: 500;
+  }
+  .users-email {
+    font-weight: 400;
+  }
+}
