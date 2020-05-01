@@ -1,8 +1,8 @@
 <div class="profile has-text-centered">
   <h1 class="is-size-3">Profile</h1>
   <div class="users-image">
-    <% image_number = Random.new.rand(1..10) %>
-    <img src="<%="https://i.picsum.photos/id/#{image_number}/300/300.jpg"%>">
+    <% image_path = Faker::Avatar.image %>
+    <img src="<%= "#{image_path}" %>">
   </div>
   <div class="users-name is-size-4">
     <span><%= @user.name %></span>
