@@ -3,7 +3,7 @@ require 'rails_helper'
 RSpec.describe SessionsHelper, type: :helper do
   let(:user) { create(:user) }
 
-  describe '#corrent_user' do
+  describe '#current_user' do
     context 'ログイン中のユーザーがいない時' do
       it 'nilを返す' do
         expect(current_user).to be_nil
