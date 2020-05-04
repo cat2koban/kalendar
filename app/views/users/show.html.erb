@@ -1,0 +1,13 @@
+<div class="profile has-text-centered">
+  <h1 class="is-size-3">Profile</h1>
+  <div class="users-image">
+    <% image_path = Faker::Avatar.image %>
+    <img src="<%= "#{image_path}" %>">
+  </div>
+  <div class="users-name is-size-4">
+    <span><%= @user.name %></span>
+  </div>
+  <div class="users-email is-size-4">
+    <span><%= @user.email %></span>
+  </div>
+</div>
