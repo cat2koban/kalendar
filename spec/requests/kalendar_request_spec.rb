@@ -13,7 +13,7 @@ RSpec.describe 'Kalendars', type: :request do
 
     context 'when logged in' do
       it 'returns status 200' do
-        log_in(user)
+        login(user)
         get '/'
         expect(response).to have_http_status(:ok)
       end
