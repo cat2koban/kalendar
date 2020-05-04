@@ -6,7 +6,7 @@ RSpec.describe SessionsHelper, type: :helper do
   describe '#corrent_user' do
     context 'ログイン中のユーザーがいない時' do
       it 'nilを返す' do
-        expect(current_user.nil?).to be_truthy
+        expect(current_user).to be_nil
       end
     end
 
