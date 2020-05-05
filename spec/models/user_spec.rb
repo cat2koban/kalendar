@@ -45,6 +45,16 @@ RSpec.describe User, type: :model do
     it { is_expected.to validate_length_of(:password).is_at_least(6) }
   end
 
+  describe 'has_many' do
+    describe 'User.tasks' do
+      it 'makes get a task' do
+        user = create(:user)
+        task = create(:task, user: user)
+        expect(user.tasks.first.id).to eq task.id
+      end
+    end
+  end
+
   describe 'before_save' do
     describe '#email_downcase' do
       let!(:user) { create(:user, email: 'USER@EXAMPLE.COM') }
