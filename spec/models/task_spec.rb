@@ -11,6 +11,10 @@ RSpec.describe Task, type: :model do
     it { is_expected.to validate_length_of(:description).is_at_most(255) }
   end
 
+  describe 'belongs_to' do
+    it { should belong_to(:user) }
+  end
+
   context "正しいタスクを作成した時" do
     it 'valid と返す' do
       expect(task).to be_valid

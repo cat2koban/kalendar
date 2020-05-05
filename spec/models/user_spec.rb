@@ -46,13 +46,7 @@ RSpec.describe User, type: :model do
   end
 
   describe 'has_many' do
-    describe 'User.tasks' do
-      it 'makes get a task' do
-        user = create(:user)
-        task = create(:task, user: user)
-        expect(user.tasks.first.id).to eq task.id
-      end
-    end
+    it { should have_many(:tasks) }
   end
 
   describe 'before_save' do
