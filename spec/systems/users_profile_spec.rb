@@ -20,17 +20,22 @@ RSpec.describe 'UsersProfile', type: :system do
       expect(current_path).to eq user_path(user)
     end
 
+    it 'タスク未作成だと「タスクがまだ作成されていません」と表示される' do
+      visit user_path(user)
+      expect(page).to have_content 'タスクがまだ作成されていません'
+    end
+
     it 'タスク一覧が閲覧できる' do
       create(:task, user: user)
       visit user_path(user)
       expect(page).to have_content(user.tasks.first.title)
     end
 
-    it '他の人のタスク一覧は閲覧できない' do
+    it '他のユーザーだと「閲覧権限がありません」と表示される' do
       other_user = create(:user)
       create(:task, user: other_user)
       visit user_path(other_user)
-      expect(page).to_not have_content(other_user.tasks.first.title)
+      expect(page).to have_content '閲覧権限がありません'
     end
   end
 end
