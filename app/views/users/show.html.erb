@@ -1,13 +1,55 @@
-<div class="profile has-text-centered">
-  <h1 class="is-size-3">Profile</h1>
-  <div class="users-image">
-    <% image_path = Faker::Avatar.image %>
-    <img src="<%= "#{image_path}" %>">
+<div class="profile columns">
+  <div class="user-info has-text-centered column is-one-third">
+    <h1 class="is-size-3">Profile</h1>
+    <div class="users-image">
+      <% image_path = Faker::Avatar.image %>
+      <img src="<%= "#{image_path}" %>">
+    </div>
+    <div class="users-name is-size-4">
+      <span><%= @user.name %></span>
+    </div>
+    <div class="users-email is-size-4">
+      <span><%= @user.email %></span>
+    </div>
   </div>
-  <div class="users-name is-size-4">
-    <span><%= @user.name %></span>
-  </div>
-  <div class="users-email is-size-4">
-    <span><%= @user.email %></span>
+  <div class="users-tasks column">
+      <div class="card">
+        <header class="card-header">
+          <div class="card-header-title is-3">
+            Tasks
+          </div>
+        </header>
+        <div class="card-content">
+          <div class="content">
+            <%if @tasks.present? %>
+              <% @tasks.each do |task| %>
+                <!-- TODO href: <タスクの詳細ページ get '/users/:id/tasks/:id', to: 'tasks#edit -->
+                <%= link_to task.title %>
+                <br>
+                <%= task.description %>
+                <br>
+                start_at: <%= task.start_at %>
+                finish_at: <%= task.finish_at %>
+                <hr>
+              <% end %>
+              <div class="to-more-task-link has-text-right">
+                <!-- TODO href: <タスク一覧のページ get '/users/:id/tasks', to: 'tasks#show' -->
+                <%= link_to 'Show more ...' %>
+              </div>
+            <% else %>
+              <div class="message is-info">
+                <div class="message-header">
+                  タスクがまだ作成されていません
+                </div>
+                <div class="message-body">
+                  タスクを登録すると、その日の自分の予定や、グループメンバーの予定が一覧で確認できます。さっそく新しいタスクを作成してみましょう！
+                  <hr>
+                  <%= link_to 'タスクを作成する' %>
+                </div>
+              </div>
+            <% end %>
+          </div>
+        </div>
+      </div>
   </div>
 </div>

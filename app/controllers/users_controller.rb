@@ -8,6 +8,11 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
+    if is_current_user?(@user)
+      @tasks = @user.tasks.first(5)
+    else
+      redirect_to root_path, flash: { danger: '閲覧権限がありません。原則、他のユーザーのプロフィール情報は閲覧することができません。' }
+    end
   end
 
   def create
