@@ -21,46 +21,32 @@
         </header>
         <div class="card-content">
           <div class="content">
-            <% if current_user?(@user) %>
-              <%if @tasks.any? %>
-                <% @tasks.each do |task| %>
-                  <!-- TODO href: <タスクの詳細ページ get '/users/:id/tasks/:id', to: 'tasks#edit -->
-                  <%= link_to task.title %>
-                  <br>
-                  <%= task.description %>
-                  <br>
-                  start_at: <%= task.start_at %>
-                  finish_at: <%= task.finish_at %>
-                  <hr>
-                <% end %>
-                <div class="to-more-task-link has-text-right">
-                  <!-- TODO href: <タスク一覧のページ get '/users/:id/tasks', to: 'tasks#show' -->
-                  <%= link_to 'Show more ...' %>
-                </div>
-              <% else %>
-                <div class="message is-info">
-                  <div class="message-header">
-                    タスクがまだ作成されていません
-                  </div>
-                  <div class="message-body">
-                    タスクを登録すると、その日の自分の予定や、グループメンバーの予定が一覧で確認できます。さっそく新しいタスクを作成してみましょう！
-                    <hr>
-                    <%= link_to 'タスクを作成する' %>
-                  </div>
-                </div>
-              <% end %>
-            <% else %>
-            <div class="message is-warning">
-              <div class="message-header">
-                閲覧権限がありません
-              </div>
-              <div class="message-body">
-                原則、他のユーザーのタスクは閲覧できません。
-                同じグループに所属しており、グループメンバーに公開されているタスクであれば閲覧できます。
+            <%if @tasks.present? %>
+              <% @tasks.each do |task| %>
+                <!-- TODO href: <タスクの詳細ページ get '/users/:id/tasks/:id', to: 'tasks#edit -->
+                <%= link_to task.title %>
+                <br>
+                <%= task.description %>
+                <br>
+                start_at: <%= task.start_at %>
+                finish_at: <%= task.finish_at %>
                 <hr>
-                <%= link_to '所属しているグループを確認する' %>
+              <% end %>
+              <div class="to-more-task-link has-text-right">
+                <!-- TODO href: <タスク一覧のページ get '/users/:id/tasks', to: 'tasks#show' -->
+                <%= link_to 'Show more ...' %>
               </div>
-            </div>
+            <% else %>
+              <div class="message is-info">
+                <div class="message-header">
+                  タスクがまだ作成されていません
+                </div>
+                <div class="message-body">
+                  タスクを登録すると、その日の自分の予定や、グループメンバーの予定が一覧で確認できます。さっそく新しいタスクを作成してみましょう！
+                  <hr>
+                  <%= link_to 'タスクを作成する' %>
+                </div>
+              </div>
             <% end %>
           </div>
         </div>
