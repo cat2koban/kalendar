@@ -110,3 +110,6 @@ Metrics/BlockLength:
   Exclude:
     - 'spec/**/*'
 
+Style/PredicateName:
+  Enabled: false
+
