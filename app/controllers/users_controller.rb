@@ -8,6 +8,7 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
+    @tasks = @user.tasks.first(5)
   end
 
   def create

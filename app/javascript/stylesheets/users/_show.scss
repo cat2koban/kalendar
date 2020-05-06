@@ -1,6 +1,6 @@
 .profile {
   margin: 3rem auto;
-  width: 450px;
+  max-width: 70%;
   h1 {
     font: {
       family: $font-primary;
@@ -26,5 +26,6 @@
   }
   .users-email {
     font-weight: 400;
+    margin-bottom: 2rem;
   }
 }
