@@ -1,9 +1,8 @@
 <div class="simple-calendar">
-  <div class="calendar-heading is-size-3">
-    <span class="calendar-title"><%= t('date.month_names')[start_date.month] %> <%= start_date.year %></span>
-    <br />
-    <%= link_to t('simple_calendar.previous', default: '◀︎'), calendar.url_for_previous_view %>
-    <%= link_to t('simple_calendar.next', default: '▶︎'), calendar.url_for_next_view %>
+  <div class="calendar-heading is-size-3 columns">
+    <%= link_to t('simple_calendar.previous', default: '◀︎'), calendar.url_for_previous_view, class: 'column is-one-fifth' %>
+    <span class="calendar-title column has-text-centered"><%= t('date.month_names')[start_date.month] %> <%= start_date.year %></span>
+    <%= link_to t('simple_calendar.next', default: '▶︎'), calendar.url_for_next_view, class: 'column has-text-right is-one-fifth' %>
   </div>
 
   <table class="table is-bordered is-fullwidth">
@@ -20,7 +19,7 @@
         <tr>
           <% week.each do |day| %>
             <%= content_tag :td, class: calendar.td_classes_for(day) do %>
-              <%= link_to "task/?date=#{day}" do %>
+              <%= link_to "/users/#{@user.id}/tasks/show?date=#{day}" do %>
                 <% if defined?(Haml) && respond_to?(:block_is_haml?) && block_is_haml?(block) %>
                   <% capture_haml(day, sorted_events.fetch(day, []), &block) %>
                 <% else %>
@@ -34,4 +33,8 @@
       <% end %>
     </tbody>
   </table>
+
+  <div class="new-task has-text-centered">
+    <%= link_to 'New Task', "/tasks/new", class: 'button create-button is-rounded is-large' %>
+  </div>
 </div>

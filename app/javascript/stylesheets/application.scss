@@ -2,16 +2,20 @@
 
 /* Colors */
 $background_base: hsl(204, 86%, 53%);
-$background_gray: hsl(0, 0%, 86%);
+$background_gray: #c8c8c8;
 $background_selected: hsl(48, 100%, 67%);
 
 /* Fonts */
 $font-primary: 'Open Sans';
 
+/* Shadow */
+$shadow_primary: 0 0.5em 1em -0.125em rgba(10, 10, 10, 0.1), 0 0px 0 1px rgba(10, 10, 10, 0.02);
+
 /* Pages */
 @import 'users/new.scss';
 @import 'users/show.scss';
 @import 'sessions/new.scss';
+@import 'tasks/new.scss';
 
 html, body {
   margin: 0;
@@ -42,15 +46,13 @@ html, body {
 
 .simple-calendar {
   .calendar-heading {
-    text-align: center;
-    margin: {
-      top: 1rem;
-      bottom: 1rem;
-    }
+    max-width: 80%;
+    margin: 1rem auto;
     a {
       color: #3298dc;
     }
     .calendar-title {
+      width: 50%;
       font: {
         family: $font-primary;
         weight: 800;
@@ -63,23 +65,13 @@ html, body {
       right: auto;
       left: auto;
     }
-    thead, tbody {
-      border: {
-        color: hsl(0, 0%, 21%);
-        style: solid;
-        width: 2px;
-      }
-    }
+    box-shadow: $shadow_primary;
     thead {
       tr {
         background: $background_base;
       }
       th {
         color: white;
-        border: {
-          width: 0.1rem;
-          right: hsl(0, 0%, 0%);
-        }
       }
     }
     td {
@@ -100,6 +92,20 @@ html, body {
         color: white;
       }
       background: $background_base;
+    }
+  }
+  .create-button {
+    box-shadow: $shadow_primary;
+    color: white;
+    background: $background_base;
+    font: {
+      family: $font-primary;
+      weight: 800;
+    }
+    border: none;
+    &:hover {
+      background: $background_selected;
+      color: black;
     }
   }
 }
