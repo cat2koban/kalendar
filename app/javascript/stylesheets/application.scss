@@ -47,7 +47,7 @@ html, body {
 .simple-calendar {
   .calendar-heading {
     max-width: 80%;
-    margin: 1rem auto;
+    margin: 0 auto;
     a {
       color: #3298dc;
     }
@@ -106,6 +106,9 @@ html, body {
     &:hover {
       background: $background_selected;
       color: black;
+    }
+    svg {
+      margin-right: 1rem;
     }
   }
 }
