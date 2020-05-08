@@ -1,17 +1,16 @@
 <div class="task-creation-fields">
   <h1 class="has-text-centered is-size-3">Create Task</h1>
-  <%= form_with(model: @task, local: true ) do |f| %>
+  <%= form_with( model: @task, local: true, url: tasks_path ) do |f| %>
+    <%= render 'shared/error_messages', object: f.object %>
 
     <%= f.label :title, class: 'label' %>
     <%= f.text_field :title, class: 'input' %>
 
-    <%= f.label :date, class: 'label' %>
-    <%= f.date_field :title, class: 'input' %>
+    <%= f.label :start_at, class: 'label' %>
+    <%= f.datetime_field :start_at, class: 'input' %>
 
-    <%= f.label :time, class: 'label' %>
-    <%= f.time_field :start_at, class: 'input is-inline-block' %>
-    <span class="tilde is-inline-block has-text-centered">~</span>
-    <%= f.time_field :finish_at, class: 'input is-inline-block' %>
+    <%= f.label :finish_at, class: 'label' %>
+    <%= f.datetime_field :finish_at, class: 'input' %>
 
     <%= f.label :description, class: 'label' %>
     <%= f.text_area :description, class: 'textarea' %>

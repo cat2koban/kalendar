@@ -15,6 +15,6 @@ Rails.application.routes.draw do
   get '/users/:id/tasks', to: 'tasks#show'
 
   # Task Creation
-  get  '/tasks/new', to: 'tasks#new'
-  post '/tasks/new', to: 'tasks#create'
+  get  '/tasks', to: 'tasks#new'
+  post '/tasks', to: 'tasks#create'
 end
