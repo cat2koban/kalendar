@@ -1,0 +1,21 @@
+<div class="task-creation-fields">
+  <h1 class="has-text-centered is-size-3">Create Task</h1>
+  <%= form_with( model: @task, local: true, url: tasks_path ) do |f| %>
+    <%= render 'shared/error_messages', object: f.object %>
+
+    <%= f.label :title, class: 'label' %>
+    <%= f.text_field :title, class: 'input' %>
+
+    <%= f.label :start_at, class: 'label' %>
+    <%= f.datetime_field :start_at, class: 'input' %>
+
+    <%= f.label :finish_at, class: 'label' %>
+    <%= f.datetime_field :finish_at, class: 'input' %>
+
+    <%= f.label :description, class: 'label' %>
+    <%= f.text_area :description, class: 'textarea' %>
+
+    <%= f.submit "Save", class: "button is-info" %>
+  <% end %>
+</div>
+

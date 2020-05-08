@@ -11,6 +11,11 @@
     <div class="users-email is-size-4">
       <span><%= @user.email %></span>
     </div>
+    <div class="new-task has-text-centered">
+      <a href="/tasks" class="button create-button is-rounded is-large">
+        <i class="fas fa-plus"></i>New Task!!
+      </a>
+    </div>
   </div>
   <div class="users-tasks column">
       <div class="card">
@@ -21,7 +26,7 @@
         </header>
         <div class="card-content">
           <div class="content">
-            <%if @tasks.present? %>
+            <% if @tasks.present? %>
               <% @tasks.each do |task| %>
                 <!-- TODO href: <タスクの詳細ページ get '/users/:id/tasks/:id', to: 'tasks#edit -->
                 <%= link_to task.title %>
@@ -42,10 +47,9 @@
                   タスクがまだ作成されていません
                 </div>
                 <div class="message-body">
-                  タスクを登録すると、その日の自分の予定や、グループメンバーの予定が一覧で確認できます。さっそく新しいタスクを作成してみましょう！
+                  タスクを登録すると、その日の自分の予定や、グループメンバーの予定が一覧で確認できます。
                   <hr>
-                  <%= link_to 'タスクを作成する' %>
-                </div>
+                  メールアドレス下の <u>[ New Task ]</u>から、さっそく新しいタスクを作成してみましょう！
               </div>
             <% end %>
           </div>

@@ -7,6 +7,8 @@ RSpec.describe Task, type: :model do
   describe 'validations' do
     it { is_expected.to validate_presence_of(:title) }
     it { is_expected.to validate_presence_of(:user_id) }
+    it { is_expected.to validate_presence_of(:start_at) }
+    it { is_expected.to validate_presence_of(:finish_at) }
     it { is_expected.to validate_length_of(:title).is_at_most(40) }
     it { is_expected.to validate_length_of(:description).is_at_most(255) }
   end
@@ -24,6 +26,20 @@ RSpec.describe Task, type: :model do
   context 'title が空白の時' do
     it 'invalid と返す' do
       task = build(:task, title: ' ' * 10)
+      expect(task).to_not be_valid
+    end
+  end
+
+  context 'start_at が空白の時' do
+    it 'invalid と返す' do
+      task = build(:task, start_at: ' ')
+      expect(task).to_not be_valid
+    end
+  end
+
+  context 'finish_at が空白の時' do
+    it 'invalid と返す' do
+      task = build(:task, finish_at: ' ')
       expect(task).to_not be_valid
     end
   end

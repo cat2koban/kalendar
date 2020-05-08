@@ -1,0 +1,38 @@
+.task-creation-fields {
+  margin: 3rem auto;
+  width: 450px;
+  h1 {
+    font: {
+      family: $font-primary;
+      weight: 800;
+    }
+    margin: {
+      top: 1rem;
+      bottom: 2rem;
+    }
+  }
+  .input {
+    margin: {
+      bottom: 0.5rem;
+    }
+  }
+  input.button {
+    display: block;
+    margin: {
+      top: 1rem;
+      left: auto;
+    }
+    font: {
+      weight: 600;
+    }
+  }
+  p{
+    margin-top: 1rem;
+  }
+  input#start_at, input#finish_at {
+    max-width: 45%;
+  }
+  .tilde {
+    width: 8%;
+  }
+}

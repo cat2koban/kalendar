@@ -10,5 +10,11 @@ Rails.application.routes.draw do
   post   '/login',  to: 'sessions#create'
   delete '/logout', to: 'sessions#destroy'
 
+  # User Settings
   resources :users
+  get '/users/:id/tasks', to: 'tasks#show'
+
+  # Task Creation
+  get  '/tasks', to: 'tasks#new'
+  post '/tasks', to: 'tasks#create'
 end

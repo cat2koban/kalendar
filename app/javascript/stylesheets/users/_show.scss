@@ -28,4 +28,21 @@
     font-weight: 400;
     margin-bottom: 2rem;
   }
+  .create-button {
+    box-shadow: $shadow_primary;
+    color: white;
+    background: $background_base;
+    font: {
+      family: $font-primary;
+      weight: 800;
+    }
+    border: none;
+    &:hover {
+      background: $background_selected;
+      color: black;
+    }
+    svg {
+      margin-right: 1rem;
+    }
+  }
 }
