@@ -1,4 +1,6 @@
 class TasksController < ApplicationController
+  before_action :redirect_unless_logged_in
+
   protect_from_forgery except: :create
 
   def new
