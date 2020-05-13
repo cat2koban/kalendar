@@ -65,4 +65,47 @@ RSpec.describe User, type: :model do
       end
     end
   end
+
+  describe '#joined_group_members' do
+    it 'returns a list of members.' do
+      user = create(:user)
+      group = create(:group)
+      create(:member, user_id: user.id, group_id: group.id)
+
+      woody = create(:user, name: 'woody')
+      create(:member, user_id: woody.id, group_id: group.id)
+      baz = create(:user, name: 'baz')
+      create(:member, user_id: baz.id, group_id: group.id)
+
+      members = user.send(:joined_group_members)
+      expect(members[0].name).to eq 'woody'
+      expect(members[1].name).to eq 'baz'
+    end
+  end
 end
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

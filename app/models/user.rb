@@ -13,6 +13,22 @@ class User < ApplicationRecord
 
   private
 
+  def joined_group_members
+    group_ids = Member.where(user_id: id).pluck(:group_id)
+
+    user_ids = []
+    group_ids.each do |group_id|
+      user_ids.push(*Member.where(group_id: group_id).pluck(:user_id))
+    end
+
+    members = []
+    user_ids.uniq.reject { |i| i == id }.each do |user_id|
+      members.push(User.find_by(id: user_id))
+    end
+
+    members # [User, User, User...]
+  end
+
   def downcase_email
     email.downcase!
   end
