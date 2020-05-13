@@ -47,7 +47,6 @@ RSpec.describe User, type: :model do
 
   describe 'has_many' do
     it { should have_many(:tasks) }
-    it { should have_many(:groups) }
   end
 
   describe 'before_save' do
