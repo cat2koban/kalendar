@@ -67,19 +67,20 @@ RSpec.describe User, type: :model do
   end
 
   describe '#joined_group_members' do
-    it 'returns a list of members.' do
-      user = create(:user)
-      group = create(:group)
-      create(:member, user_id: user.id, group_id: group.id)
+    let(:user) { create(:user) }
+    let(:group_1) { create(:group) }
+    let(:group_2) { create(:group) }
+    let(:user_2) { create(:user, name: 'user_2') }
+    let(:user_3) { create(:user, name: 'user_3') }
+    let(:members) { user.send(:joined_group_members) }
 
-      woody = create(:user, name: 'woody')
-      create(:member, user_id: woody.id, group_id: group.id)
-      baz = create(:user, name: 'baz')
-      create(:member, user_id: baz.id, group_id: group.id)
+    it 'returns a list of users.' do
+      create(:member, user_id: user.id, group_id: group_1.id)
+      create(:member, user_id: user_2.id, group_id: group_1.id)
+      create(:member, user_id: user.id, group_id: group_2.id)
+      create(:member, user_id: user_3.id, group_id: group_2.id)
 
-      members = user.send(:joined_group_members)
-      expect(members[0].name).to eq 'woody'
-      expect(members[1].name).to eq 'baz'
+      expect(members).to include user_2, user_3
     end
   end
 end

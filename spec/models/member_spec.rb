@@ -10,11 +10,12 @@ RSpec.describe Member, type: :model do
     it { is_expected.to validate_presence_of(:group_id) }
 
     describe 'uniqueness validation' do
+      let(:user) { create(:user) }
+      let(:group) { create(:group) }
+      let(:other_user) { create(:user) }
+      let(:other_group) { create(:group) }
+
       it do
-        user = create(:user)
-        group = create(:group)
-        other_user = create(:user)
-        other_group = create(:group)
         create(:member, user: user, group: group)
 
         expect(build(:member, user: user, group: other_group)).to be_valid
