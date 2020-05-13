@@ -109,7 +109,10 @@ Layout/LineLength:
 Metrics/BlockLength:
   Exclude:
     - 'spec/**/*'
+    - 'db/schema.rb'
 
 Style/PredicateName:
   Enabled: false
 
+Style/NumericLiterals:
+  Enabled: false
