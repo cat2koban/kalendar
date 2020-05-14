@@ -47,6 +47,8 @@ RSpec.describe User, type: :model do
 
   describe 'has_many' do
     it { should have_many(:tasks) }
+    it { should have_many(:members) }
+    it { should have_many(:groups) }
   end
 
   describe 'before_save' do
@@ -63,6 +65,24 @@ RSpec.describe User, type: :model do
         user = create(:user, email: 'downcase@example.com')
         expect(user.reload.email).to eq 'downcase@example.com'
       end
+    end
+  end
+
+  describe '#joined_group_members' do
+    let(:user) { create(:user) }
+    let(:group_1) { create(:group) }
+    let(:group_2) { create(:group) }
+    let(:user_2) { create(:user, name: 'user_2') }
+    let(:user_3) { create(:user, name: 'user_3') }
+    let(:members) { user.send(:joined_group_members) }
+
+    it 'returns a list of users.' do
+      create(:member, user_id: user.id, group_id: group_1.id)
+      create(:member, user_id: user_2.id, group_id: group_1.id)
+      create(:member, user_id: user.id, group_id: group_2.id)
+      create(:member, user_id: user_3.id, group_id: group_2.id)
+
+      expect(members).to include user_2, user_3
     end
   end
 end
