@@ -1,5 +1,7 @@
 class User < ApplicationRecord
   has_many :tasks, dependent: :destroy
+  has_many :members
+  has_many :groups, through: :members
 
   before_save :downcase_email
 
@@ -10,6 +12,11 @@ class User < ApplicationRecord
                     uniqueness: { case_sensitive: false }
   has_secure_password
   validates :password, presence: true, length: { minimum: 6 }, allow_nil: true
+
+  def joined_group_members
+    user_ids = Member.where(group_id: group_ids).distinct.pluck(:user_id)
+    User.where(id: user_ids).where.not(id: id)
+  end
 
   private
 
