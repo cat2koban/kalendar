@@ -1,5 +1,7 @@
 class User < ApplicationRecord
   has_many :tasks, dependent: :destroy
+  has_many :members
+  has_many :groups, through: :members
 
   before_save :downcase_email
 
@@ -11,23 +13,12 @@ class User < ApplicationRecord
   has_secure_password
   validates :password, presence: true, length: { minimum: 6 }, allow_nil: true
 
-  private
-
   def joined_group_members
-    group_ids = Member.where(user_id: id).pluck(:group_id)
-
-    user_ids = []
-    group_ids.each do |group_id|
-      user_ids.push(*Member.where(group_id: group_id).pluck(:user_id))
-    end
-
-    members = []
-    user_ids.uniq.reject { |i| i == id }.each do |user_id|
-      members.push(User.find_by(id: user_id))
-    end
-
-    members # [User, User, User...]
+    user_ids = Member.where(group_id: group_ids).distinct.pluck(:user_id)
+    User.where(id: user_ids).where.not(id: id)
   end
+
+  private
 
   def downcase_email
     email.downcase!

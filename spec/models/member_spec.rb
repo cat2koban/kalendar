@@ -23,5 +23,10 @@ RSpec.describe Member, type: :model do
         expect(build(:member, user: user, group: group)).to be_invalid
       end
     end
+
+    describe 'belongs_to' do
+      it { should belong_to(:user) }
+      it { should belong_to(:group) }
+    end
   end
 end

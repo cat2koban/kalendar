@@ -10,4 +10,9 @@ RSpec.describe Group, type: :model do
     it { is_expected.to validate_length_of(:name).is_at_most(20) }
     it { is_expected.to validate_length_of(:description).is_at_most(255) }
   end
+
+  describe 'has_many' do
+    it { should have_many(:members) }
+    it { should have_many(:users) }
+  end
 end
