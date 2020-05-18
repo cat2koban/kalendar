@@ -8,6 +8,7 @@ class TasksController < ApplicationController
   end
 
   def create
+    binding.pry
     @task = current_user.tasks.build(task_params)
     if @task.save
       redirect_to root_path, flash: { success: 'Your task has been successfully created :)' }

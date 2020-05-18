@@ -1,16 +1,30 @@
 <div class="task-creation-fields">
   <h1 class="has-text-centered is-size-3">Create Task</h1>
-  <%= form_with( model: @task, local: true, url: tasks_path ) do |f| %>
+  <%= form_with( model: @task, scope: :task, local: true, url: tasks_path ) do |f| %>
     <%= render 'shared/error_messages', object: f.object %>
 
     <%= f.label :title, class: 'label' %>
     <%= f.text_field :title, class: 'input' %>
 
-    <%= f.label :start_at, class: 'label' %>
-    <%= f.datetime_field :start_at, class: 'input' %>
+    <div id="datetime" class="container">
+      <b-field label="start_at">
+        <b-datetimepicker
+          placeholder="Click to select..."
+          name="task[start_at]"
+          :min-datetime="minDatetime"
+          :max-datetime="maxDatetime">
+        </b-datetimepicker>
+      </b-field>
 
-    <%= f.label :finish_at, class: 'label' %>
-    <%= f.datetime_field :finish_at, class: 'input' %>
+      <b-field label="finish_at">
+        <b-datetimepicker
+          placeholder="Click to select..."
+          name="task[finish_at]"
+          :min-datetime="minDatetime"
+          :max-datetime="maxDatetime">
+        </b-datetimepicker>
+      </b-field>
+    </div>
 
     <%= f.label :description, class: 'label' %>
     <%= f.text_area :description, class: 'textarea' %>
@@ -19,3 +33,4 @@
   <% end %>
 </div>
 
+<%= javascript_pack_tag 'datetime_picker' %>
