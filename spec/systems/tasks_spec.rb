@@ -13,7 +13,7 @@ RSpec.describe 'Task', type: :system do
 
     before do
       login(user, by_capybara: true)
-      find('.create-button').click
+      visit tasks_path
     end
 
     context 'Title が空白の時' do
