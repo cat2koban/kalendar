@@ -22,7 +22,11 @@ class TasksController < ApplicationController
 
   def update; end
 
-  def destroy; end
+  def destroy
+    task = Task.find_by(id: params[:id])
+    task.destroy
+    redirect_to root_path, flash: { success: 'Task deleted' }
+  end
 
   private
 

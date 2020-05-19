@@ -17,4 +17,5 @@ Rails.application.routes.draw do
   # Task Creation
   get  '/tasks', to: 'tasks#new'
   post '/tasks', to: 'tasks#create'
+  delete '/tasks', to: 'tasks#destroy'
 end

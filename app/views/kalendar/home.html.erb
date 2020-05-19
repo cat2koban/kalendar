@@ -1,9 +1,42 @@
-<%= month_calendar(attribute: :start_at, end_attribute: :end_at, events: @tasks) do |date, tasks| %>
-  <%= date.day %>
+<div id="modal-tasks-description" class="container" v-cloak>
+  <%= month_calendar(attribute: :start_at, end_attribute: :end_at, events: @tasks) do |date, tasks| %>
+    <%= date.day %>
+    <% if tasks.present? %>
+      <a @click="openModal(<%= date.day %>)">
+        <%= tasks.count %>件予定があります
+      </a>
+      <b-modal :active.sync="isCardModalActive[<%= date.day %>]" :width="640" scroll="keep">
+        <div class="card">
+          <div class="card-content">
+            <div class="content">
+              <% tasks.each_with_index do |task, index| %>
+                <p>
+                Title: <%= task.title %>
+                </p>
+                <p>
+                  Description:
+                  <%= task.description %>
+                </p>
+                <small>
+                  <%= task.start_at %>
+                  <%= task.finish_at %>
+                </small>
+                <br />
+                <% if (current_user == task.user) %>
+                  <%= link_to "delete", "/tasks?id=#{task.id}", method: :delete, data: { confirm: "You sure?" } %>
+                <% end %>
+                <% unless index == tasks.size-1 %>
+                  <hr>
+                <% end %>
+              <% end %>
+            </div>
+          </div>
+      </b-modal>
 
-  <% if tasks.present? %>
-    <button>
-      <p><%= tasks.count %>件予定あり</p>
-    </button>
+      </div>
+    <% end %>
   <% end %>
-<% end %>
+</div>
+
+
+<%= javascript_pack_tag 'modal-tasks-description' %>
