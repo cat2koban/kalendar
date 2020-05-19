@@ -44,6 +44,10 @@ html, body {
   margin: 0 auto;
 }
 
+[v-cloak] {
+  display: none;
+}
+
 .simple-calendar {
   .calendar-heading {
     max-width: 80%;
@@ -89,7 +93,7 @@ html, body {
     }
     .today {
       a {
-        color: white;
+        color: black;
       }
       background: $background_base;
     }
@@ -109,6 +113,11 @@ html, body {
     }
     svg {
       margin-right: 1rem;
+    }
+  }
+  .delete-button {
+    a {
+      color: black;
     }
   }
 }

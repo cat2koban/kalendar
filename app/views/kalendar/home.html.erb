@@ -1,4 +1,4 @@
-<div id="modal-tasks-description" class="container">
+<div id="modal-tasks-description" class="container" v-cloak>
   <%= month_calendar(attribute: :start_at, end_attribute: :end_at, events: @tasks) do |date, tasks| %>
     <%= date.day %>
     <% if tasks.present? %>
@@ -21,6 +21,10 @@
                   <%= task.start_at %>
                   <%= task.finish_at %>
                 </small>
+                <br />
+                <% if (current_user == task.user) %>
+                  <%= link_to "delete", "/tasks?id=#{task.id}", method: :delete, data: { confirm: "You sure?" } %>
+                <% end %>
                 <% unless index == tasks.size-1 %>
                   <hr>
                 <% end %>
