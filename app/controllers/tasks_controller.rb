@@ -24,7 +24,6 @@ class TasksController < ApplicationController
 
   def destroy
     task = Task.find_by(id: params[:id])
-    binding.pry
     task.destroy
     redirect_to root_path, flash: { success: 'Task deleted' }
   end
