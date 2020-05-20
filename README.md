@@ -4,18 +4,23 @@ kalendar is like a Google calendar.
 ## Technology stacks
 - Ruby 2.6.2
 - Rails 6.0.2.2
-- MySQL 14.14
+- MySQL 5.7
 - Webpacker 4.2.2
 - Vue.js 2.6.11
 - bulma 0.8.2
 - buefy 0.8.18
 
 ## Setup
-### 1. Install Ruby / Bunlder
+### Install Ruby / Bunlder
 
-### 2. Install MySQL
+I using [rbenv](https://github.com/rbenv/rbenv) for manage ruby versions.
 
-### 3. Set your environment variables to database configure file
+### Install MySQL
+
+https://qiita.com/hkusu/items/cda3e8461e7a46ecf25d
+
+### Set your environment variables to database configure file
+
 https://github.com/cat2koban/kalendar/blob/master/config/database.yml
 
 I using [direnv](https://github.com/direnv/direnv) for manage environment variables. 
@@ -42,12 +47,29 @@ test:
   host: localhost
 ```
 
-### 4. Run bundle installation
+### Run bundle installation
 
-I using [rbenv](https://github.com/rbenv/rbenv) for manage ruby versions.
-
-```
+```zsh
 $ bundle install
 $ bundle exec rails db:migrate
-$ bundle exec 
 ```
+
+### Run rails server
+
+```zsh
+$ bundle exec rails server
+```
+
+## Contribute
+
+1. Fork ([https://github.com/cat2koban/kalendar/fork](https://github.com/cat2koban/kalendar/fork))
+2. Create a feature branch
+3. Commit your changes
+4. Rebase your local changes against the master branch
+5. Run test suite with the `bundle exec rspec` command and confirm that it passes
+6. Run `bundle exec rubocop -a`
+7. Create new Pull Request
+
+
+## Author
+[cat2koban](https://github.com/cat2koban/)
