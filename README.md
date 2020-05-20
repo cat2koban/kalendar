@@ -1,7 +1,7 @@
 # Kalendar
 kalendar is like a Google calendar.
 
-## Technology stacks
+## Technology stack
 - Ruby 2.6.2
 - Rails 6.0.2.2
 - MySQL 5.7
