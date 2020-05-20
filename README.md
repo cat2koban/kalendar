@@ -6,6 +6,7 @@ kalendar is like a Google calendar.
 - Rails 6.0.2.2
 - MySQL 5.7
 - Webpacker 4.2.2
+- Simple Calendar 2.3.0
 - Vue.js 2.6.11
 - bulma 0.8.2
 - buefy 0.8.18
@@ -47,17 +48,17 @@ test:
   host: localhost
 ```
 
-### Run bundle installation
+### Bundle installation
 
 ```zsh
 $ bundle install
 $ bundle exec rails db:migrate
 ```
 
-### Run webpacker installation
+### Build webpack
 
 ```zsh
-$ bin/webpacker
+$ bin/webpack
 ```
 
 ### Run rails server
