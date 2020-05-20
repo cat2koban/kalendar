@@ -54,6 +54,12 @@ $ bundle install
 $ bundle exec rails db:migrate
 ```
 
+### Run webpacker installation
+
+```zsh
+$ bin/webpacker
+```
+
 ### Run rails server
 
 ```zsh
